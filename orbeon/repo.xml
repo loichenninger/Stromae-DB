@@ -3,10 +3,10 @@
     <description>orbeon</description>
     <author/>
     <website/>
-    <status>alpha</status>
+    <status>stable</status>
     <license>GNU-LGPL</license>
     <copyright>true</copyright>
-    <type>library</type>
+    <type>application</type>
     <target>/db/orbeon</target>
     <prepare>pre-install.xql</prepare>
     <finish/>
