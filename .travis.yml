@@ -9,7 +9,8 @@ before_script:
   - curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
 
 install:
-  - ant
+  - cd orbeon && ant && cd ..
+  - cd restxq && ant && cd ..
 
 script:
   - docker build -t laurentc35/stromae-db .
