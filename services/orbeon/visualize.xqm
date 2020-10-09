@@ -46,7 +46,7 @@ declare
 function pogues:post-publish ($body as node()*, $dataCollection as xs:string*, $model as xs:string*)    
 {
 let $dataCollection := lower-case($dataCollection)
-let $orbeon-root := '/db/apps/orbeon/fr'
+let $orbeon-root := '/db/orbeon/fr'
 let $a := common:collection($orbeon-root,$dataCollection)
 let $dataCollection-root := concat($orbeon-root,'/',$dataCollection)
 let $b := common:collection($dataCollection-root,$model)
@@ -67,8 +67,8 @@ let $model-data-init-collection-folder := concat($model-data-init-folder,'/',$co
 
 let $perso := xmldb:store($model-data-init-collection-folder, '123456789.xml', doc(concat($model-form-folder,'/form.xhtml'))//xf:instance[@id='fr-form-instance']/form)
 
-let $ip_orbeon := doc('/db/apps/orbeon/properties.xml')/properties/host_orbeon/ip/text()
-let $port_orbeon := doc('/db/apps/orbeon/properties.xml')/properties/host_orbeon/port/text()
+let $ip_orbeon := doc('/db/orbeon/properties.xml')/properties/host_orbeon/ip/text()
+let $port_orbeon := doc('/db/orbeon/properties.xml')/properties/host_orbeon/port/text()
 let $url := concat('http://',$ip_orbeon,':',$port_orbeon,'/rmesstromae/fr/',$dataCollection,'/', $model, '/new?unite-enquete=',$unite)
 
 return 

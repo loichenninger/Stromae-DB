@@ -11,4 +11,5 @@ declare variable $dir external;
 (: the target collection into which the app is deployed :)
 declare variable $target external;
 
-xdb:move("/db/apps/orbeon","/db/orbeon")
+xdb:create-collection("/db","orbeon");
+xdb:move("/db/apps/orbeon","/db/orbeon");

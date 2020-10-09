@@ -4,7 +4,7 @@ declare namespace rest="http://exquery.org/ns/restxq";
 declare namespace functx = "http://www.functx.com";
 
 declare variable $common:racine-racine := '/db/' ;
-declare variable $common:repertoire-default := 'apps/orbeon/fr/' ;
+declare variable $common:repertoire-default := 'orbeon/fr/' ;
 
 (: log et retourne une réponse rest, avec le statut passé en paramètre. Le message de <http:response> n'est jamais affiché => inutile :)
 declare function common:rest-response($status as xs:int*) as node()* {
