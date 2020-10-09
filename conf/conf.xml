@@ -459,7 +459,7 @@
             The root collection for deployed applications. Application collections will be saved below
             this collection.
     -->
-    <repository root="/db/apps"/>
+    <repository root="/db"/>
 
     <!--
         Settings for the Binary Manager:
