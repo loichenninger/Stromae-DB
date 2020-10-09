@@ -12,5 +12,5 @@ declare variable $dir external;
 declare variable $target external;
 
 xmldb:create-collection("/db","services"),
-xmldb:store("/db", "properties.xml", "/db/apps/services/orbeon/properties.xml"),
+xmldb:store("/db", "properties.xml", doc("/db/apps/services/orbeon/properties.xml")),
 xmldb:remove("/db/apps/services/orbeon/properties.xml")
