@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <meta xmlns="http://exist-db.org/xquery/repo">
-    <description>restxq</description>
+    <description>services</description>
     <author/>
     <website/>
-    <status>alpha</status>
+    <status>stable</status>
     <license>GNU-LGPL</license>
     <copyright>true</copyright>
-    <type>library</type>
-    <target>restxq</target>
+    <type>application</type>
+    <target>services</target>
     <prepare>pre-install.xql</prepare>
     <finish/>
 </meta>

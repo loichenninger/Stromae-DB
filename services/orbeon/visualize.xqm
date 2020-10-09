@@ -46,7 +46,7 @@ declare
 function pogues:post-publish ($body as node()*, $dataCollection as xs:string*, $model as xs:string*)    
 {
 let $dataCollection := lower-case($dataCollection)
-let $orbeon-root := '/db/orbeon/fr'
+let $orbeon-root := '/db/apps/orbeon/fr'
 let $a := common:collection($orbeon-root,$dataCollection)
 let $dataCollection-root := concat($orbeon-root,'/',$dataCollection)
 let $b := common:collection($dataCollection-root,$model)

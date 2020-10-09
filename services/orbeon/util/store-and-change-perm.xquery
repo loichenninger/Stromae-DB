@@ -55,14 +55,14 @@ declare function local:change-permission-element($element as xs:string,$userDefa
 
 (: étape 3 - Appel de la méthode store-again sur la collection /db/services/ et le fichier visualize.xqm et stockage dans la variable restore :)
 
-let $restore:= local:store-again-collections("/db/services")
+let $restore:= local:store-again-collections("/db/apps/services")
 let $restore2:= local:store-again-file("/db","visualize.xqm")
 
 (: étape 4 - Appel de la méthode change permission sur la collection /orbeon, le user_stromae du groupe Appli en devient le propriétaire  :)
 
-let $resperm1:= local:change-permission("/db/orbeon/fr","guest","guest")
-let $resperm2:= local:change-permission-element("/db/orbeon","user_stromae","user_stromae")
-let $resperm3:= local:change-permission-element("/db/orbeon/fr","user_stromae","user_stromae")
+let $resperm1:= local:change-permission("/db/apps/orbeon/fr","guest","guest")
+let $resperm2:= local:change-permission-element("/db/apps/orbeon","user_stromae","user_stromae")
+let $resperm3:= local:change-permission-element("/db/apps/orbeon/fr","user_stromae","user_stromae")
 
 (:  étape 5 - retourne un résultat de type  :)
 let $finaleRes := <log><store-again>{$restore}{$restore2}</store-again><permission>{$resperm1}{$resperm2}{$resperm3}</permission></log> 
