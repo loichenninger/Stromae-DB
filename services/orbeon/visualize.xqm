@@ -67,8 +67,8 @@ let $model-data-init-collection-folder := concat($model-data-init-folder,'/',$co
 
 let $perso := xmldb:store($model-data-init-collection-folder, '123456789.xml', doc(concat($model-form-folder,'/form.xhtml'))//xf:instance[@id='fr-form-instance']/form)
 
-let $ip_orbeon := doc('/db/orbeon/properties.xml')/properties/host_orbeon/ip/text()
-let $port_orbeon := doc('/db/orbeon/properties.xml')/properties/host_orbeon/port/text()
+let $ip_orbeon := doc('/db/properties.xml')/properties/host_orbeon/ip/text()
+let $port_orbeon := doc('/db/properties.xml')/properties/host_orbeon/port/text()
 let $url := concat('http://',$ip_orbeon,':',$port_orbeon,'/rmesstromae/fr/',$dataCollection,'/', $model, '/new?unite-enquete=',$unite)
 
 return 
