@@ -28,5 +28,5 @@ declare function local:mkcol($collection, $path) {
 };
 
 (: store the collection configuration :)
-local:mkcol("/db/system/config", "/db/orbeon"),
-xdb:store-files-from-pattern(concat("/db/system/config", "/db/orbeon"), $dir, "*.xconf")
+local:mkcol("/db/system/config", $target),
+xdb:store-files-from-pattern(concat("/db/system/config", $target), $dir, "*.xconf")
