@@ -10,7 +10,9 @@ before_script:
 
 install:
   - cd orbeon && ant && cd ..
-  - cd services && ant && cd ..
+  - cd restxq && ant && cd ..
+  - cd notrestxq && ant && cd ..
+  - cd visualize && ant && cd ..
 
 script:
   - docker build -t laurentc35/stromae-db .

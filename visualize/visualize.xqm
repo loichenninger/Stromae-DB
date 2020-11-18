@@ -12,7 +12,7 @@ declare namespace ngram = "http://exist-db.org/xquery/ngram";
 declare namespace xf="http://www.w3.org/2002/xforms";
 declare namespace xhtml="http://www.w3.org/1999/xhtml";
 declare namespace http="http://expath.org/ns/http-client";
-import module namespace common= "http://www.insee.fr/collectes/commonstromae/common" at "xmldb:exist:///db/services/orbeon/common/commonStromae.xqm";
+import module namespace common= "http://www.insee.fr/collectes/commonstromae/common" at "xmldb:exist:///db/apps/visualize/commonStromae.xqm";
 
 (:************ Vizualise Questionnaire  *************:)
 
@@ -58,7 +58,10 @@ let $model-data-folder := concat($model-root,'/data')
 let $e := common:collection($model-data-folder,'init')
 let $model-data-init-folder := concat($model-data-folder,'/init')
 
-let $form := xmldb:store($model-form-folder, 'form.xhtml', $body)
+let $transform:= doc('visualize.xsl')
+let $params := <parameters/>
+let $newBody:=transform:transform($body,$transform,$params)
+let $form := xmldb:store($model-form-folder, 'form.xhtml', $newBody)
 
 let $unite := xs:string('123456789')
 let $collection := xs:string('15')
@@ -67,9 +70,14 @@ let $model-data-init-collection-folder := concat($model-data-init-folder,'/',$co
 
 let $perso := xmldb:store($model-data-init-collection-folder, '123456789.xml', doc(concat($model-form-folder,'/form.xhtml'))//xf:instance[@id='fr-form-instance']/form)
 
-let $ip_orbeon := doc('/db/properties.xml')/properties/host_orbeon/ip/text()
-let $port_orbeon := doc('/db/properties.xml')/properties/host_orbeon/port/text()
-let $url := concat('http://',$ip_orbeon,':',$port_orbeon,'/rmesstromae/fr/',$dataCollection,'/', $model, '/new?unite-enquete=',$unite)
+let $properties := doc('/db/apps/visualize/properties.xml')/properties
+
+let $protocol_orbeon := $properties/host_orbeon/protocol/text()
+let $ip_orbeon := $properties/host_orbeon/ip/text()
+let $port_orbeon := $properties/host_orbeon/port/text()
+let $app_orbeon := $properties/host_orbeon/app/text() 
+let $ampersand := '&amp;' (: ampersand :)
+let $url := concat($protocol_orbeon,'://',$ip_orbeon,':',$port_orbeon,'/',$app_orbeon,'/fr/',$dataCollection,'/', $model, '/new?unite-enquete=',$unite)
 
 return 
 (     
