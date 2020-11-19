@@ -2161,7 +2161,7 @@
             </xf:bind>
          </xf:bind>
          
-         <xf:submission id="enregistrer" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false">
+         <xf:submission id="enregistrer" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false" resource="">
             <xf:action ev:event="xforms-submit-error">
                <xxf:show ev:event="DOMActivate" dialog="fatal-error"/>
             </xf:action>
@@ -2170,7 +2170,7 @@
             </xf:action>
          </xf:submission>
          
-         <xf:submission id="expedier" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false">
+         <xf:submission id="expedier" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false" resource="">
             <xf:action ev:event="xforms-submit-error">
                <xf:setvalue ref="instance('fr-form-instance')/stromae/util/expedie" value="string('non')"/>
                <xxf:show ev:event="DOMActivate" dialog="fatal-error"/>
@@ -2231,7 +2231,6 @@
             </xf:action>
             <xf:setvalue ref="instance('fr-form-instance')/stromae/util/dateHeure" value="fn:format-dateTime(fn:current-dateTime(),'[D01]-[M01]-[Y0001] à [H01]:[m01]')"/>
             <xf:toggle case="{instance('fr-form-instance')/stromae/util/sectionCourante}"/>
-            <xf:send submission="enregistrer"/>
             <xf:setfocus control="page-top-control"/>
          </xf:action>
          

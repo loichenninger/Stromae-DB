@@ -1032,7 +1032,7 @@
                <xf:bind id="page-INSEE-HOUSEHOLD-TEMPS-bind" name="INSEE-HOUSEHOLD-TEMPS" ref="INSEE-HOUSEHOLD-TEMPS"/>
             </xf:bind>
          </xf:bind>
-         <xf:submission id="enregistrer" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false">
+         <xf:submission id="enregistrer" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false" resource="">
             <xf:action ev:event="xforms-submit-error">
                <xxf:show ev:event="DOMActivate" dialog="fatal-error"/>
             </xf:action>
@@ -1040,7 +1040,7 @@
                <xf:setvalue ref="xxf:instance('fr-persistence-instance')/data-safe-override">true</xf:setvalue>
             </xf:action>
          </xf:submission>
-         <xf:submission id="expedier" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false">
+         <xf:submission id="expedier" method="post" ref="instance('fr-form-instance')" replace="none" relevant="false" resource="">
             <xf:action ev:event="xforms-submit-error">
                <xf:setvalue ref="instance('fr-form-instance')/stromae/util/sectionCourante" value="string(number(instance('fr-form-instance')/stromae/util/sectionCourante)-1)"/>
                <xf:setvalue ref="instance('fr-form-instance')/stromae/util/nomSectionCourante" value="instance('fr-form-util')/Pages/*[position()=number(instance('fr-form-instance')/stromae/util/sectionCourante)]/name()"/>
@@ -1186,7 +1186,6 @@
             <xf:setvalue ref="instance('fr-form-instance')/stromae/util/sectionCourante" value="count(instance('fr-form-util')/Pages/*[following-sibling::*[name()=instance('fr-form-instance')/stromae/util/nomSectionCourante]]) +1"/>
             <xf:setvalue ref="instance('fr-form-instance')/stromae/util/dateHeure" value="fn:format-dateTime(fn:current-dateTime(),'[D01]-[M01]-[Y0001] à [H01]:[m01]')"/>
             <xf:toggle case="{instance('fr-form-instance')/stromae/util/sectionCourante}"/>
-            <xf:send submission="enregistrer"/>
             <xf:setfocus control="page-top-control"/>
          </xf:action>
       </xf:model>
