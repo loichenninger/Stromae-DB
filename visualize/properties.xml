@@ -8,6 +8,5 @@
         <protocol>https</protocol>
         <ip>stromae.dev.insee.io</ip>
         <app>rmesstromae</app>
-        <port>8080</port>
     </host_orbeon>
 </properties>
