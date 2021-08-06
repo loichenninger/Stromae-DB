@@ -1,0 +1,27 @@
+language: java
+jdk:
+  - openjdk8
+sudo: required
+services:
+  - docker
+
+before_script:
+  - curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+
+install:
+  - cd orbeon && ant && cd ..
+  - cd restxq && ant && cd ..
+  - cd notrestxq && ant && cd ..
+  - cd visualize && ant && cd ..
+
+script:
+  - docker build -t laurentc35/stromae-db .
+
+deploy:
+  - skip_cleanup: true
+    provider: script
+    script:
+      echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+      && docker push laurentc35/stromae-db
+    on:
+      branch: master

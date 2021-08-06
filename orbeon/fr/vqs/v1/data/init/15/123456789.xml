@@ -1,0 +1,59 @@
+<form modele="v1">
+    <Variable idVariable="QuiRepond1"/>
+    <Variable idVariable="QuiRepond2"/>
+    <Variable idVariable="QuiRepond3"/>
+    <ACCUEIL>
+        <ACCUEIL-1/>
+        <ACCUEIL-2/>
+        <ACCUEIL-3/>
+        <ACCUEIL-4/>
+        <ACCUEIL-5/>
+        <ACCUEIL-6/>
+        <ACCUEIL-7/>
+    </ACCUEIL>
+    <Variable idVariable="ADRESSE">10000 IMP DES EGLANTIERS 01400 L'ABERGEMENT-CLEMENCIA</Variable>
+    <Variable idVariable="NOMCONTACT">TOTO</Variable>
+    <kejxl9lk>
+        <kejxl9lk-kejy60t1/>
+        <Variable idVariable="OKADRESS"/>
+        <kfo3wa4a-a-kejxy84t-THEN>
+            <Variable idVariable="RESIDM"/>
+            <kfpub47i/>
+            <kfpub47i-kfpub47i-secondDimension-fakeCL-1-1/>
+            <kfpub47i-kfpub47i-secondDimension-fakeCL-1-2/>
+            <kfpub47i-kfpub47i-secondDimension-fakeCL-1-3/>
+            <kfpub47i-kfpub47i-secondDimension-fakeCL-1-4/>
+            <kfpub47i-kfpub47i-secondDimension-fakeCL-1-5/>
+            <kfpub47i-kfpub47i-secondDimension-fakeCL-1-6/>
+            <Groupe idGroupe="NADRESSE"/>
+            <NADRESSE-Count>1</NADRESSE-Count>
+        </kfo3wa4a-a-kejxy84t-THEN>
+    </kejxl9lk>
+    <kejyfwqj>
+        <kejyfwqj-kejy4m1u/>
+        <Variable idVariable="NHAB"/>
+        <Groupe idGroupe="BOUCLEINDIV"/>
+        <BOUCLEINDIV-Count/>
+        <BOUCLEINDIV-AddOccurrence/>
+    </kejyfwqj>
+    <Groupe idGroupe="BOUCLEINDIV_2"/>
+    <kfmqhl12>
+        <kfmqhl12-kfmqi33j/>
+    </kfmqhl12>
+    <INSEE-HOUSEHOLD-TEMPS>
+        <Variable idVariable="COMMENT_QE"/>
+    </INSEE-HOUSEHOLD-TEMPS>
+    <VALIDATION/>
+    <FIN/>
+    <stromae>
+        <util>
+            <sectionCourante>1</sectionCourante>
+            <nomSectionCourante/>
+            <CurrentLoopElement loop-name="BOUCLEINDIV_2"/>
+            <expedie>non</expedie>
+            <extrait>non</extrait>
+            <dateHeure/>
+        </util>
+        <perso/>
+    </stromae>
+</form>
