@@ -8,8 +8,8 @@ declare variable $permission:uriProperties :="/db/restxq/properties.xml";
 declare variable $permission:currentBase :="stromae";
 
 declare variable $permission:properties:=doc($permission:uriProperties)//entry[starts-with(@key, $permission:currentBase)];
-declare variable $permission:defaultGroup:=$permission:properties[@key=$permission:currentBase||".group"]/text();
-declare variable $permission:defaultUser:=$permission:properties[@key=$permission:currentBase||".user.default"]/text();
+declare variable $permission:defaultGroup:='user_stromae';
+declare variable $permission:defaultUser:='user_stromae';
 
 declare variable $permission:version := "20171206-OR";
 
@@ -79,7 +79,7 @@ declare function permission:change-permission($dir as xs:string,$userDefault as 
     return(<dir id="{$dir}" owner="{$ici/@owner}" group="{$ici/@group}" mode="{$ici/@mode}"  modifiable="{$ici/@modifiable}">{$subrec}{$subdir}</dir>)
 };
 declare function permission:change-permission-element($element as xs:string,$userDefault as xs:string,$groupDefault as xs:string) {
-    let $modifiable := if(starts-with($element, "/db/system") or starts-with($element, "/db/apps"))then(
+    let $modifiable := if(starts-with($element, "/db/system"))then(
             false()
         )else(
             let $temp := sm:chown(xs:anyURI($element), $userDefault)

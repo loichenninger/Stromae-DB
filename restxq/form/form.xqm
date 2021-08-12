@@ -5,6 +5,7 @@ declare namespace xhtml="http://www.w3.org/1999/xhtml";
 
 declare variable $form:version := "20171206-OR";
 
+
 (:~
  : HELLOWORLD
  :
@@ -18,7 +19,7 @@ declare
 %rest:path("/form/helloworld")
 function form:helloworld() as item()+{
     let $mess:=<resultat><xqm>{'/form/helloworld'}</xqm><version>{$form:version}</version><message>{"Chuck Norris a réussi à trouver la page 404."}</message></resultat>
-    return (common:rest-response(200),$mess)
+    return (common:rest-response(200,$mess))
 };
 
 (:INSTANCE POUR QUESTIONNAIRE:)
@@ -39,6 +40,7 @@ return if (doc-available($doc-user))
 };
 
 (:Recuperation du formulaire:)
+ (: appelé depuis Orbeon - ne fonctionne pas avec apps/orbeon:)
 declare
 %rest:GET
 %rest:path("/collectes/formulaire/{$enquete}/{$modele}")

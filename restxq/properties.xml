@@ -1,12 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <properties>
     <comment>---config des bases xml---</comment>
-    <!--pilotage-->
-    <entry key="pilotage.uri.base">https://coleman-exist-pil3.alpha.innovation.insee.eu/</entry>
 
     <!--mots de passe associés aux comptes xxx.user.login.xxx défini plus bas-->
     
     <!--orbeon-->
-    <entry key="stromae.uri.base">https://coleman-exist-coll3.alpha.innovation.insee.eu/</entry>
+    <entry key="stromae.uri.base">http://dvstromaeldb01.ad.insee.intra:8080/</entry>
  
     <!--mots de passe associés aux comptes xxx.user.login.xxx défini plus bas-->
     
@@ -14,27 +13,13 @@
     <!--utilisé par les 2 bases pareil-->
     <entry key="racine.racine">/db/</entry>
     <entry key="uri.service.restxq">exist/restxq/</entry>
-    
-   <!--  pour la création des comptes : le groupe auquel ils appartiennent-->
-    <entry key="pilotage.group">appli</entry>  
-   <!-- le compte par défaut, les fichier dézipé sont attribué à cet user -->
-    <entry key="pilotage.user.default">portail</entry> 
-    <!-- les noms des comptes à créer, le cas échanéant -->
-    <entry key="pilotage.user.login.orbeon">orbeon</entry>
-    <entry key="pilotage.user.login.portail">portail</entry>
-    <entry key="pilotage.user.login.batch">batch</entry>
-    <entry key="pilotage.user.login.pilotage">pilotage</entry>
-    <entry key="pilotage.user.login.coltrane">coltrane</entry>
+ 
     
     <!--stromae-->
     <entry key="stromae.racine">orbeon/fr/</entry>
-    <entry key="stromae.uri.restxq">restxq/</entry>
-    <!--  pour la création des comptes : idem Pilotage-->
-    <entry key="stromae.group">appli</entry>
-    <entry key="stromae.user.default">orbeon</entry>
-    <entry key="stromae.user.login.orbeon">orbeon</entry>
-    <entry key="stromae.user.login.portail">portail</entry>
-    <entry key="stromae.user.login.batch">batch</entry>
-    <entry key="stromae.user.login.pilotage">pilotage</entry>
-    <entry key="stromae.user.login.coltrane">coltrane</entry>
+     <entry key="stromae.user.default">user_stromae</entry>
+    
+    
+        <!--healthcheck-->
+    <entry key="healthcheck-path-get">test/simpsons/data/init/15/123456789</entry>
 </properties>
