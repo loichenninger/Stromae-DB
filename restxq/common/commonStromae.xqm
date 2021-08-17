@@ -1,27 +1,8 @@
 xquery version "3.0";
 module namespace common="http://www.insee.fr/collectes/commonstromae/common";
 
-
 declare namespace functx = "http://www.functx.com";
 declare namespace http="http://expath.org/ns/http-client";
-
-declare variable $common:version := "20210311-JL";
-
-(:~
- : HELLOWORLD
- :
- : GET /common/helloworld
- :
- : @return 200 + <resultat><xqm>{'/common/helloworld'}</xqm><version>{$common:version}</version><message>{"Chuck Norris a piraté le Pentagone. Avec un grille-pain."}</message></resultat>
-:)
-
-declare
-%rest:GET
-%rest:path("/common/helloworld")
-function common:helloworld() as item()+{
-    let $mess:=<resultat><xqm>{'/common/helloworld'}</xqm><version>{$common:version}</version><message>{"Chuck Norris a piraté le Pentagone. Avec un grille-pain."}</message></resultat>
-    return common:rest-response(200,$mess)
-};
 
 (: JL - définition de la fonction common:parse-dateTime pour remplacer datetime:parse-dateTime qui ne marchera plus à partir d'eXist 5.0  :)
 
@@ -38,9 +19,6 @@ declare function common:parse-dateTime
             xs:time($hour||':'||$min||':'||$sec)))
  } ;
 
-
-
-
 declare function common:xql-response($entree as node()*) as node()* {
    let $rez := if ($entree//@status) then
    
@@ -59,7 +37,6 @@ declare function common:xql-response($entree as node()*) as node()* {
            
 };
 
- 
 declare function common:rest-response($status as xs:int*, $message as xs:string*) as node()* {
    let $niveauLog := if($status>=200 and $status <300)then "INFO" else "ERROR"
     let $log := util:log($niveauLog, concat("rest-response - $status : ", $status)) 
@@ -73,7 +50,6 @@ declare function common:rest-response($status as xs:int*, $message as xs:string*
            
     return $restResponse
 };
-
 
 (: fonction pour calculer le répertoire dans lequel est le questionnaire :)
 declare function common:calcol ($arg as xs:string?) as xs:integer* {
@@ -90,7 +66,6 @@ declare function functx:chars ($arg as xs:string?) as xs:string* {
     return codepoints-to-string($ch)
 };
 
-
 (: Une fonction qui vérifie l'existence d'une collection à un emplacement donné et la crée si elle n'existe pas :)
 declare function common:collection($emplacement as xs:string, $collection as xs:string) as xs:string{
 
@@ -98,23 +73,4 @@ let $test := if(not(xmldb:collection-available(concat($emplacement,'/',$collecti
             then (xmldb:create-collection($emplacement, $collection))
             else ''
             return ''
-};
-
-
-declare function common:xql-response($entree as node()*) as node()* {
-   let $rez := if ($entree//@status) then
-   
-            if ($entree//@status = ('404','200','201','202','203','204')) then 
-                if ($entree[1]//http:response  and $entree[2]) then
-                    (response:set-status-code($entree//@status),$entree[2])
-                else if ($entree[1]//http:response  and not ($entree[2])) then
-                    (response:set-status-code($entree//@status),$entree//@reason)
-                else
-                (response:set-status-code($entree//@status),$entree[1])
-            else if ($entree//@reason) then 
-                (response:set-status-code($entree//@status),$entree//@reason)    
-                else (response:set-status-code($entree//@status))  
-        else ($entree)
-    return $rez           
-           
 };

@@ -1,7 +1,8 @@
-FROM existdb/existdb:5.0.0
+FROM existdb/existdb:4.5.0
+
+EXPOSE 8080 8443
 
 COPY conf/conf.xml /exist/etc
-COPY notrestxq/build/*.xar /exist/autodeploy
+COPY WS/build/*.xar /exist/autodeploy
 COPY orbeon/build/*.xar /exist/autodeploy
 COPY restxq/build/*.xar /exist/autodeploy
-COPY visualize/build/*.xar /exist/autodeploy

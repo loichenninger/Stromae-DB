@@ -13,22 +13,6 @@ declare variable $permission:defaultUser:='user_stromae';
 
 declare variable $permission:version := "20171206-OR";
 
-(:~
- : HELLOWORLD
- :
- : GET /permission/helloworld
- :
- : @return 200 + <resultat><xqm>{'/permission/helloworld'}</xqm><version>{$verif:version}</version><message>{"Un jour, Chuck Norris a fait la blague « j'ai volé ton nez » à Mickael Jackson."}</message></resultat>
-:)
-
-declare
-%rest:GET
-%rest:path("/permission/helloworld")
-function permission:helloworld() as item()+{
-    let $mess:=<resultat><xqm>{'/permission/helloworld'}</xqm><version>{$permission:version}</version><message>{"Un jour, Chuck Norris a fait la blague « j'ai volé ton nez » à Mickael Jackson."}</message></resultat>
-    return ($mess)
-};
-
 (::::::::::::::::::::::::DROITS:::::::::::::::::::::::::::::::)
 (:~
  : on crée les users et le group, on ajoute/modifie le group comme primary group aux user,

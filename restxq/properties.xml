@@ -5,20 +5,14 @@
     <!--mots de passe associés aux comptes xxx.user.login.xxx défini plus bas-->
     
     <!--orbeon-->
-    <entry key="stromae.uri.base">http://dvstromaeldb01.ad.insee.intra:8080/</entry>
+    <entry key="stromae.uri.base">https://stromae-db-or.dev.insee.io:8080/</entry>
  
     <!--mots de passe associés aux comptes xxx.user.login.xxx défini plus bas-->
     
-    <!--ne pas surcharger-->
-    <!--utilisé par les 2 bases pareil-->
-    <entry key="racine.racine">/db/</entry>
-    <entry key="uri.service.restxq">exist/restxq/</entry>
- 
-    
     <!--stromae-->
     <entry key="stromae.racine">orbeon/fr/</entry>
-     <entry key="stromae.user.default">user_stromae</entry>
-    
+    <entry key="stromae.group">user_stromae</entry>
+    <entry key="stromae.user.default">user_stromae</entry>
     
         <!--healthcheck-->
     <entry key="healthcheck-path-get">test/simpsons/data/init/15/123456789</entry>

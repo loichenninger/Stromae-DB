@@ -1,28 +1,7 @@
 xquery version "3.0";
 module namespace form="http://www.insee.fr/collectes/form";
 import module namespace common= "http://www.insee.fr/collectes/commonstromae/common" at "../common/commonStromae.xqm";
-declare namespace xhtml="http://www.w3.org/1999/xhtml";
 
-declare variable $form:version := "20171206-OR";
-
-
-(:~
- : HELLOWORLD
- :
- : GET /contact/helloworld
- :
- : @return 200 + <resultat><xqm>{'/model/helloworld'}</xqm><version>{$modelt:version}</version><message>{"Chuck Norris a réussi à trouver la page 404."}</message></resultat>
-:)
-
-declare
-%rest:GET
-%rest:path("/form/helloworld")
-function form:helloworld() as item()+{
-    let $mess:=<resultat><xqm>{'/form/helloworld'}</xqm><version>{$form:version}</version><message>{"Chuck Norris a réussi à trouver la page 404."}</message></resultat>
-    return (common:rest-response(200,$mess))
-};
-
-(:INSTANCE POUR QUESTIONNAIRE:)
 declare
 %rest:GET
 %rest:path("/collectes/form/{$enquete}/{$modele}/{$unite}")
@@ -39,16 +18,3 @@ return if (doc-available($doc-user))
       )
 };
 
-(:Recuperation du formulaire:)
- (: appelé depuis Orbeon - ne fonctionne pas avec apps/orbeon:)
-declare
-%rest:GET
-%rest:path("/collectes/formulaire/{$enquete}/{$modele}")
-function form:get-instance ($enquete as xs:string*, $modele as xs:string*) as node()* 
-{
-let $formulaire := concat('/db/orbeon/fr/',$enquete,'/',$modele,'/form/form.xhtml')
-return 
-    if (not(doc-available($formulaire))) 
-    then (<vide/>)
-    else doc($formulaire)//xhtml:html 
-};

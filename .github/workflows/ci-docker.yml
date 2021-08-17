@@ -1,0 +1,32 @@
+name: Build docker
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install
+        run: |
+          cd orbeon && ant && cd ..
+          cd restxq && ant && cd ..
+          cd notrestxq && ant && cd ..
+          cd visualize && ant && cd ..
+        shell: bash
+
+
+  docker:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: opherogel/stromae-db
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          tags: ${{steps.version.outputs.prop}}
+
+  

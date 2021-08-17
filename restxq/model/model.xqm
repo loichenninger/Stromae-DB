@@ -1,11 +1,7 @@
 xquery version "3.0";
 module namespace model="http://www.insee.fr/collectes/model";
 import module namespace common= "http://www.insee.fr/collectes/commonstromae/common" at "../common/commonStromae.xqm";
-  
 
-declare variable $model:version := "20171206-OR";
-
-(:MODEL:) 
 declare
 %rest:GET
 %rest:path("/model/{$enquete}/{$unite}")
