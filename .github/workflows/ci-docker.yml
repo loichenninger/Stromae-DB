@@ -7,20 +7,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
       - name: install
         run: |
-          cd orbeon && ant && cd ..
-          cd restxq && ant && cd ..
-          cd notrestxq && ant && cd ..
-          cd visualize && ant && cd ..
+          cd apps/orbeon && ant && cd build && ls -l && cd ../../..
+          cd restxq && ant  && cd build && ls -l && cd ../..
+          cd WS && ant  && cd build && ls -l && cd ../..
         shell: bash
 
-
-  docker:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
