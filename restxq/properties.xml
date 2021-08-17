@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+    <comment>---config des bases xml---</comment>
+
+    <!--mots de passe associés aux comptes xxx.user.login.xxx défini plus bas-->
+    
+    <!--orbeon-->
+    <entry key="stromae.uri.base">https://stromae-db-or.dev.insee.io:8080/</entry>
+ 
+    <!--mots de passe associés aux comptes xxx.user.login.xxx défini plus bas-->
+    
+    <!--stromae-->
+    <entry key="stromae.racine">orbeon/fr/</entry>
+    <entry key="stromae.group">user_stromae</entry>
+    <entry key="stromae.user.default">user_stromae</entry>
+    
+        <!--healthcheck-->
+    <entry key="healthcheck-path-get">test/simpsons/data/init/15/123456789</entry>
+</properties>
