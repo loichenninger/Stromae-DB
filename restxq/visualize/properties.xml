@@ -6,7 +6,7 @@
     </host_exist>
     <host_orbeon>
         <protocol>https</protocol>
-        <ip>stromae-or.dev.insee.io</ip>
+        <ip>stromae.dev.insee.io</ip>
         <app>rmesstromae</app>
     </host_orbeon>
 </properties>
