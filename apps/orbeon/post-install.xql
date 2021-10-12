@@ -12,5 +12,5 @@ declare variable $dir external;
 declare variable $target external;
 
 xmldb:create-collection("/db","orbeon"),
-xmldb:move("/db/apps/orbeon/fr","/db/orbeon")
-sm:chmod(xs:anyURI("/db/orbeon/fr"), 'rwxrwxrwx') 
+xmldb:move("/db/apps/orbeon/fr","/db/orbeon"),
+sm:chmod(xs:anyURI("/db/orbeon/fr"), 'rwxrwxrwx')
